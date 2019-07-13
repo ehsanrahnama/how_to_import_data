@@ -1,7 +1,9 @@
 import pandas as pd
 import re
+import os 
 
-file_path = '/home/ehsan/Desktop/ImportData/CSVFile/posts-100.csv'
+ROOT_DIR = os.getcwd()
+file_path = os.path.join(ROOT_DIR, "CSVFile", "posts-100.csv")
 
 # load csv file with pd.read_csv
 posts_csv = pd.read_csv(file_path)
@@ -15,7 +17,6 @@ print(posts_csv.head(n=6))
 
 # load data from url (remote file)
 # remote_file = ''
-
 # data_url = pd.read_csv(remote_file, header=None)
 # print(data_url)
 
@@ -44,7 +45,7 @@ post_columns = pd.read_csv(file_path, names=header_fields)
 print(post_columns.head())
 
 # Read csv file has heder 
-file_path_1 = '/home/ehsan/Desktop/ImportData/CSVFile/posts-100-header.csv'
+file_path_1 = os.path.join(ROOT_DIR, "CSVFile", "posts-100-header.csv")
 post_header = pd.read_csv(file_path_1 )
 print(post_header.columns)
 print(post_header[['Id', 'Title']].head())
@@ -89,7 +90,7 @@ print(post_reader.head())
 
 print("==========================================================")
 # load tsv file tab seperated value
-file_path_2 = '/home/ehsan/Desktop/ImportData/CSVFile/posts-100.tsv'
+file_path_2 = os.path.join(ROOT_DIR, "CSVFile", "posts-100.tsv")
 post_reader = pd.read_csv(file_path_2, sep='\t')
 print(post_reader.head())
 
