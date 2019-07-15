@@ -4,8 +4,8 @@ import os
 # It has should installed xlrd by pip 
 
 ROOT_DIR = os.getcwd() 
-excel_path = os.path.join(ROOT_DIR, 'Excel', 'stackoverflow.xlsx' )
-file_excel = os.path.join(ROOT_DIR,'Excel', 'stackoverflow-one.xlsx')
+excel_path = os.path.join(ROOT_DIR, 'ExcelFile', 'stackoverflow.xlsx' )
+excel_path_2 = os.path.join(ROOT_DIR,'ExcelFile', 'stackoverflow-one.xlsx')
 
 excel_file = pd.ExcelFile(excel_path)
 
@@ -21,20 +21,20 @@ print(type(excel_df))
 print(excel_df.head())
 
 # read_excel is another attrib for loading excel file
-posts_excel = pd.read_excel(file_excel)
+posts_excel = pd.read_excel(excel_path_2)
 print(type(posts_excel))
 print(posts_excel.columns)
 print(posts_excel.head())
 
 # Specify Columns
-posts_excel = pd.read_excel(file_excel, usecols=[0, 3])
+posts_excel = pd.read_excel(excel_path_2, usecols=[0, 3])
 print(posts_excel.head())
 print(posts_excel.columns)
 
-posts_excel = pd.read_excel(file_excel, usecols='A:C').columns # A to C
+posts_excel = pd.read_excel(excel_path_2, usecols='A:C').columns # A to C
 print(posts_excel)
 
-posts_excel = pd.read_excel(file_excel, usecols='A,C').columns # A and C
+posts_excel = pd.read_excel(excel_path_2, usecols='A,C').columns # A and C
 print(posts_excel)
 
 # Use Sheet name of file excel
